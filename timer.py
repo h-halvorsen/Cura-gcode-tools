@@ -50,8 +50,8 @@ else:
 	for i in range(1, len(sys.argv)):
 		findTime(sys.argv[i])
 		print()
-		total = sec_to_hhmmss(s_total)
-		print("Total: {}".format(total))
+	total = sec_to_hhmmss(s_total)
+	print("Total: {}".format(total))
 
 
 
