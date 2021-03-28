@@ -1,3 +1,5 @@
+#Get last instance of ";TIME_ELAPSED:" from file, converts it from seconds to hh:mm:ss time format.  If multiple files are analyzed at the same time, it will add together the times and display a total print time
+
 import sys
 
 word = ';TIME_ELAPSED:'
@@ -48,8 +50,8 @@ else:
 	for i in range(1, len(sys.argv)):
 		findTime(sys.argv[i])
 		print()
+		total = sec_to_hhmmss(s_total)
 
-total = sec_to_hhmmss(s_total)
 print("Total: {}".format(total))
 
 input()
