@@ -39,7 +39,7 @@ def findTime(path):
 
 				val = float(substr)
 				s_total += val
-				val = int(val)
+				val = round(val, 2)
 
 				print(sec_to_hhmmss(val))
 				break
@@ -51,7 +51,8 @@ else:
 		findTime(sys.argv[i])
 		print()
 		total = sec_to_hhmmss(s_total)
+		print("Total: {}".format(total))
 
-print("Total: {}".format(total))
+
 
 input()
