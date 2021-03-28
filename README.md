@@ -7,6 +7,7 @@ I have only tested on win10 with python 3.8.6
 
 
 planned:
+* tool for filament length
 * tool for weight
 * tool for cost
 * combine all tools into one file
