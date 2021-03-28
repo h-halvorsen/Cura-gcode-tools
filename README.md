@@ -11,3 +11,8 @@ planned:
 * tool for weight
 * tool for cost
 * combine all tools into one file
+
+
+Like my work? consider buying me a coffe: Ko-fi.com/henrik2900
+
+Any comments/critisism is highly appreciated
