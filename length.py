@@ -11,7 +11,6 @@ def filenameFromPath(path):
 	idx = f_name.index("\\")
 	f_name = f_name[:idx]
 	f_name = f_name[::-1]
-	f_name += "__length"
 	print(f_name)
 
 def findLength(path):

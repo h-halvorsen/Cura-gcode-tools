@@ -26,7 +26,6 @@ def filenameFromPath(path):
 	idx = f_name.index("\\")
 	f_name = f_name[:idx]
 	f_name = f_name[::-1]
-	f_name += "__time"
 	print(f_name)
 
 def findTime(path):
@@ -41,7 +40,7 @@ def findTime(path):
 				s_total += val
 				val = round(val, 2)
 
-				return(sec_to_hhmmss(val), val)
+				return("Print time {}cm".format(sec_to_hhmmss(val)), val)
 
 if __name__ == "__main__":
 	if len(sys.argv) < 2:
