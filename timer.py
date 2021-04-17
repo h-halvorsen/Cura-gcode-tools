@@ -19,11 +19,8 @@ def sec_to_hhmmss(val):
 
 	return out
 
-
-def findTime(path):
-	global s_total
-	
-	if path[0] == '\"' or path[0] == '\'':
+def filenameFromPath(path):
+	if (path[0] == '\"' or path[0] == '\''):
 		path = path[1:-1]
 	f_name = path[::-1]
 	idx = f_name.index("\\")
@@ -31,6 +28,8 @@ def findTime(path):
 	f_name = f_name[::-1]
 	print(f_name)
 
+def findTime(path):
+	global s_total
 	with open(path) as file:
 		for line in reversed(file.readlines()):
 			if word in line:
@@ -41,18 +40,22 @@ def findTime(path):
 				s_total += val
 				val = round(val, 2)
 
-				print(sec_to_hhmmss(val))
-				break
+				return("Print time {}cm".format(sec_to_hhmmss(val)), val)
 
-if len(sys.argv) < 2:
-	findTime(input("File path: "))
-else:
-	for i in range(1, len(sys.argv)):
-		findTime(sys.argv[i])
-		print()
+if __name__ == "__main__":
+	if len(sys.argv) < 2:
+		path = input("File path: ")
+		filenameFromPath(path)
+		out, length = findTime(path)
+		print(out)
+	else:
+		for i in range(1, len(sys.argv)):
+			path = sys.argv[i]
+			filenameFromPath(path)
+
+			out, length = findTime(path)
+			print(out)
+			print()			#separator line
 		total = sec_to_hhmmss(s_total)
 		print("Total: {}".format(total))
-
-
-
-input()
+	input()
