@@ -1,5 +1,7 @@
 #Checks last G0/G1 command that effects extruder. outputs expected filament use in cm
 
+#G92 E0
+
 import sys
 
 l_total = 0.0
@@ -17,7 +19,10 @@ def findLength(path):
 	
 	with open(path) as file:
 		val = 0.0
-		for line in reversed(file.readlines()):
+		length = 0.0
+		m107Occ = False
+		for line in file:
+			line = line.strip()
 			if "G0" in line or "G1" in line:
 				if "E" in line:
 					idx = line.index('E')
@@ -29,13 +34,21 @@ def findLength(path):
 					
 					if tmp > val:
 						val = tmp
+			if "G92 E0" in line:
+				length += val
+			if "M107" in line:
+				if m107Occ == True:
+					length +=val
+					break
+				m107Occ = True
+				
 
-		l_total += val
+		l_total += length
 
-		val = val/10
-		val = round(val, 3)
+		length = length/10
+		length = round(length, 3)
 		
-		print("Filament length: {}cm".format(val))
+		print("Filament length: {}cm".format(length))
 
 if len(sys.argv) < 2:
 	findLength(input("File path: "))
