@@ -27,7 +27,9 @@ if __name__ == "__main__":
 		for i in range(1, len(sys.argv)):
 			getData(sys.argv[i])
 			print()
-		print("Total time: {}".format(time_total))
-		print("Total length: {}".format(length_total))
+		length_total = length_total/1000
+		length_total= round(length_total, 2)
+		print("Total time: {}".format(tm.sec_to_hhmmss(time_total)))
+		print("Total length: {}m".format(length_total))
 	input()
 
