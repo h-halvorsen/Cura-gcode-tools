@@ -1,14 +1,10 @@
 #Checks last G0/G1 command that effects extruder. outputs expected filament use in cm
 
-#G92 E0
-
 import sys
 
 l_total = 0.0
 
 def findLength(path):
-	global l_total
-
 	if path[0] == '\"' or path[0] == '\'':
 		path = path[1:-1]
 	f_name = path[::-1]
@@ -42,20 +38,22 @@ def findLength(path):
 					break
 				m107Occ = True
 				
-
-		l_total += length
-
+		
+		length_raw = length
 		length = length/10
 		length = round(length, 3)
 		
-		print("Filament length: {}cm".format(length))
+	return("Filament length: {}cm".format(length), length_raw)
 
 if __name__ == "__main__":
 	if len(sys.argv) < 2:
-		findLength(input("File path: "))
+		out, length = findLength(input("File path: "))
+		print(out)
 	else:
 		for i in range(1, len(sys.argv)):
-			findLength(sys.argv[i])
+			out, length = findLength(sys.argv[i])
+			l_total += length
+			print(out)
 			print()	
 		total = round((l_total/10),3)
 		print("Total: {}cm".format(total))

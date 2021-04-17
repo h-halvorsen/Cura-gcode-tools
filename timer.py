@@ -19,7 +19,6 @@ def sec_to_hhmmss(val):
 
 	return out
 
-
 def findTime(path):
 	global s_total
 	
@@ -41,17 +40,17 @@ def findTime(path):
 				s_total += val
 				val = round(val, 2)
 
-				print(sec_to_hhmmss(val))
-				break
-
+				return(sec_to_hhmmss(val), val)
 
 if __name__ == "__main__":
 	if len(sys.argv) < 2:
-		findTime(input("File path: "))
+		out, length = findTime(input("File path: "))
+		print(out)
 	else:
 		for i in range(1, len(sys.argv)):
-			findTime(sys.argv[i])
-			print()
+			out, length = findTime(sys.argv[i])
+			print(out)
+			print()			#separator line
 		total = sec_to_hhmmss(s_total)
 		print("Total: {}".format(total))
 	input()
