@@ -50,15 +50,13 @@ def findLength(path):
 		
 		print("Filament length: {}cm".format(length))
 
-if len(sys.argv) < 2:
-	findLength(input("File path: "))
-else:
-	for i in range(1, len(sys.argv)):
-		findLength(sys.argv[i])
-		print()	
-	total = round((l_total/10),3)
-	print("Total: {}cm".format(total))
-
-
-
-input()
+if __name__ == "__main__":
+	if len(sys.argv) < 2:
+		findLength(input("File path: "))
+	else:
+		for i in range(1, len(sys.argv)):
+			findLength(sys.argv[i])
+			print()	
+		total = round((l_total/10),3)
+		print("Total: {}cm".format(total))
+	input()
