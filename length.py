@@ -11,6 +11,7 @@ def filenameFromPath(path):
 	idx = f_name.index("\\")
 	f_name = f_name[:idx]
 	f_name = f_name[::-1]
+	f_name += "__length"
 	print(f_name)
 
 def findLength(path):
@@ -43,13 +44,9 @@ def findLength(path):
 		length_raw = length
 		length = length/10
 		length = round(length, 3)
-		
 	return("Filament length: {}cm".format(length), length_raw)
 
 if __name__ == "__main__":
-
-	
-
 	if len(sys.argv) < 2:
 		path = input("File path: ")
 		filenameFromPath(path)
