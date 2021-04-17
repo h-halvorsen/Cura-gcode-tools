@@ -44,15 +44,14 @@ def findTime(path):
 				print(sec_to_hhmmss(val))
 				break
 
-if len(sys.argv) < 2:
-	findTime(input("File path: "))
-else:
-	for i in range(1, len(sys.argv)):
-		findTime(sys.argv[i])
-		print()
-	total = sec_to_hhmmss(s_total)
-	print("Total: {}".format(total))
 
-
-
-input()
+if __name__ == "__main__":
+	if len(sys.argv) < 2:
+		findTime(input("File path: "))
+	else:
+		for i in range(1, len(sys.argv)):
+			findTime(sys.argv[i])
+			print()
+		total = sec_to_hhmmss(s_total)
+		print("Total: {}".format(total))
+	input()
