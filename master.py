@@ -25,11 +25,7 @@ def getData(path):
 	print(timer_output)
 	print(length_output)
 
-	
-
-
-
-if __name__ == "__main":
+if __name__ == "__main__":
 	if len(sys.argv) < 2:
 			getData(input("File path: "))
 	else:
