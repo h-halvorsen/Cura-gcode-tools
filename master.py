@@ -25,19 +25,14 @@ def getData(path):
 	print(length_output)
 
 if __name__ == "__main__":
-	
-	if (path[0] == '\"' or path[0] == '\''):
-		path = path[1:-1]
-	f_name = path[::-1]
-	idx = f_name.index("\\")
-	f_name = f_name[:idx]
-	f_name = f_name[::-1]
-	print(f_name)
 
 	if len(sys.argv) < 2:
-			getData(input("File path: "))
+		path = input("File path: ")
+		tm.filenameFromPath(path)
+		getData(path)
 	else:
 		for i in range(1, len(sys.argv)):
+			tm.filenameFromPath(sys.argv[i])
 			getData(sys.argv[i])
 			print()
 		print("Total time: {}".format(time_total))
