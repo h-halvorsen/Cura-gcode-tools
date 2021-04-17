@@ -22,14 +22,6 @@ def sec_to_hhmmss(val):
 def findTime(path):
 	global s_total
 	
-	if path[0] == '\"' or path[0] == '\'':
-		path = path[1:-1]
-	f_name = path[::-1]
-	idx = f_name.index("\\")
-	f_name = f_name[:idx]
-	f_name = f_name[::-1]
-	print(f_name)
-
 	with open(path) as file:
 		for line in reversed(file.readlines()):
 			if word in line:
@@ -43,6 +35,13 @@ def findTime(path):
 				return(sec_to_hhmmss(val), val)
 
 if __name__ == "__main__":
+	if (path[0] == '\"' or path[0] == '\''):
+		path = path[1:-1]
+	f_name = path[::-1]
+	idx = f_name.index("\\")
+	f_name = f_name[:idx]
+	f_name = f_name[::-1]
+	
 	if len(sys.argv) < 2:
 		out, length = findTime(input("File path: "))
 		print(out)

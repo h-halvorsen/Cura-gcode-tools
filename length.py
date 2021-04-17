@@ -5,14 +5,6 @@ import sys
 l_total = 0.0
 
 def findLength(path):
-	if path[0] == '\"' or path[0] == '\'':
-		path = path[1:-1]
-	f_name = path[::-1]
-	idx = f_name.index("\\")
-	f_name = f_name[:idx]
-	f_name = f_name[::-1]
-	print(f_name)
-	
 	with open(path) as file:
 		val = 0.0
 		length = 0.0
@@ -46,6 +38,15 @@ def findLength(path):
 	return("Filament length: {}cm".format(length), length_raw)
 
 if __name__ == "__main__":
+
+	if (path[0] == '\"' or path[0] == '\''):
+		path = path[1:-1]
+	f_name = path[::-1]
+	idx = f_name.index("\\")
+	f_name = f_name[:idx]
+	f_name = f_name[::-1]
+	print(f_name)
+
 	if len(sys.argv) < 2:
 		out, length = findLength(input("File path: "))
 		print(out)
