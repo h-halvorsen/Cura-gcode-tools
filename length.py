@@ -5,6 +5,8 @@ import sys
 l_total = 0.0
 
 def filenameFromPath(path):
+	if (path[0] == '&'):
+		path= path[2:-1]
 	if (path[0] == '\"' or path[0] == '\''):
 		path = path[1:-1]
 	f_name = path[::-1]
