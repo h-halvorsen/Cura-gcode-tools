@@ -20,6 +20,8 @@ def sec_to_hhmmss(val):
 	return out
 
 def filenameFromPath(path):
+	if (path[0] == '&'):
+		path= path[2:-1]
 	if (path[0] == '\"' or path[0] == '\''):
 		path = path[1:-1]
 	f_name = path[::-1]
@@ -40,7 +42,7 @@ def findTime(path):
 				s_total += val
 				val = round(val, 2)
 
-				return("Print time {}cm".format(sec_to_hhmmss(val)), val)
+				return("Print time {}".format(sec_to_hhmmss(val)), val)
 
 if __name__ == "__main__":
 	if len(sys.argv) < 2:
